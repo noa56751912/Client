@@ -1,0 +1,58 @@
+
+.page-container {
+    display: flex !important;
+    flex-direction: row !important;
+    /* הכרחת כיוון משמאל לימין על כל האזור */
+    direction: ltr !important; 
+    gap: 30px;
+}
+
+.filter-sidebar {
+    /* order: -1 אומר "תהיה הראשון בתור", כלומר הכי שמאלי */
+    order: -1 !important; 
+    width: 250px !important;
+    /* ביטול כל ציפה לימין */
+    float: none !important; 
+    margin-right: auto;
+    text-align: left !important;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: row;
+    direction: ltr; /* משאיר את הלייאאוט הכללי משמאל לימין */
+    gap: 20px;
+    width: 100%;
+}
+
+.products-grid-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* זה מה שיצמיד את הגריד עצמו לימין */
+}
+
+/* אם את משתמשת ב-PrimeNG DataView או גריד פנימי */
+.p-dataview .p-dataview-content {
+    display: flex;
+    justify-content: flex-end; /* מצמיד את תוכן הכרטיסים לימין בתוך הגריד */
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* אזור הגריד - תופס את שאר המסך */
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 כרטיסים בשורה */
+    gap: 15px;
+    align-items: stretch; /* גובה אחיד לכל הכרטיסים בשורה */
+    width: 80%;
+}
+
+app-product-card {
+    width: 100%;
+    max-width: 280px; /* גודל כרטיס אופטימלי */
+    margin: 0 auto;
+}
+
