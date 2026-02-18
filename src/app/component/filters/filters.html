@@ -1,0 +1,30 @@
+<div style="direction: ltr !important; text-align: left !important;">
+    <p-panel header="Filter Products" [style]="{ 'width': '100%' }">
+        
+        <div class="filter-section mb-4" style="text-align: left !important; direction: ltr !important;">
+    <label class="font-bold block mb-2">Search</label>
+    <span class="p-input-icon-left w-full">
+        <i class="pi pi-search"></i>
+        <input type="text" pInputText placeholder="Search..." 
+               [(ngModel)]="searchTerm" (input)="updateFilters()" class="w-full" />
+    </span>
+</div>
+
+        <div class="filter-section">
+            <label class="font-bold block mb-2">Categories</label>
+            <p-listbox [options]="categories" [(ngModel)]="selectedCategories" 
+                      [multiple]="true" [checkbox]="true" optionLabel="categoryName" 
+                      (onChange)="updateFilters()" [style]="{'width':'100%'}">
+            </p-listbox>
+        </div>
+
+        <div class="filter-section mt-4">
+            <label class="font-bold block mb-5">Price: {{rangeValues[0]}}₪ - {{rangeValues[1]}}₪</label>
+            <p-slider [(ngModel)]="rangeValues" [range]="true" [min]="0" [max]="15000" 
+                      (onSlideEnd)="updateFilters()"></p-slider>
+        </div>
+
+        <p-button label="Reset" icon="pi pi-refresh" (onClick)="reset()" 
+                  styleClass="p-button-text p-button-sm mt-3 w-full"></p-button>
+    </p-panel>
+</div>
